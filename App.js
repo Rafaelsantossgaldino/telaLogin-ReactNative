@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View, 
   KeyboardAvoidingView,
@@ -6,9 +6,12 @@ import {
   TextInput,
   TouchableOpacity, 
   Text,
-  StyleSheet, } from 'react-native';
+  StyleSheet, Animated } from 'react-native';
 
 export default function App() {
+  const [offset] = useState(new Animated.ValueXY({x: 0, y:80}));
+  
+
   return (
     <KeyboardAvoidingView style={styles.background}>
       <View style={styles.containerLogo}>
@@ -17,7 +20,16 @@ export default function App() {
         />
       </View>
 
-      <View style={styles.container}>
+      <Animated.View
+       style={[
+          styles.container,
+          {
+            transform: [
+              { translateY: offset.y }
+            ]
+          }
+          ]}
+       >
         <TextInput style={styles.input}
         placeholder="Email"
         autoCorrect={false}
@@ -35,7 +47,7 @@ export default function App() {
         <TouchableOpacity style={styles.btnRegister}>
           <Text style={styles.registerText}>Criar conta gratuita</Text>
         </TouchableOpacity>
-      </View>
+      </Animated.View>
     </KeyboardAvoidingView>
   );
 }
