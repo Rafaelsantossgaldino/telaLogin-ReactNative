@@ -10,25 +10,26 @@ import {
 
 export default function App() {
   return (
-    <KeyboardAvoidingView>
-      <View>
+    <KeyboardAvoidingView style={styles.background}>
+      <View style={styles.containerLogo}>
         <Image
            source={require('./assets/logo.png')}
         />
       </View>
-      <View>
-        <TextInput 
+
+      <View style={styles.container}>
+        <TextInput style={styles.input}
         placeholder="Email"
         autoCorrect={false}
         onChange={()=>{}}
         />
-        <TextInput 
+        <TextInput style={styles.input}
         placeholder="Senha"
         autoCorrect={false}
         onChange={()=>{}}
         />
-        <TouchableOpacity>
-          <Text>Acessar</Text>
+        <TouchableOpacity style={styles.btnSubmit}>
+          <Text >Acessar</Text>
         </TouchableOpacity>
 
         <TouchableOpacity>
@@ -40,10 +41,29 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  background: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#191919',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  containerLogo: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '90%',
+  },
+  input: {
+    backgroundColor: '#FFF',
+    width: '90%',
+    marginBottom: 15,
+    color: '#222',
+    fontSize:17,
+    borderRadius: 7,
+    padding: 10
+  }
 });
