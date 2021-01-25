@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     fontSize:18,
   },
   btnRegister: {
-    marginTop: 15,
+    marginTop: 10,
   },
   registerText:{
     color: '#fff',
